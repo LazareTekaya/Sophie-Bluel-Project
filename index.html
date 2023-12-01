@@ -23,8 +23,8 @@
 
 
 <body>
-	<aside class="admin__rod admin__modifer" aria-hidden="true" >
-		<div class="admin__modifer">
+	<aside class="authElements admin__rod" aria-hidden="true"  >
+		<div class="modifier-admin">
 			<i class="fa-solid fa-pen-to-square"></i>
 			<p>Mode édition</p>
 		</div>
@@ -59,9 +59,9 @@
 		</section>
 		
 		<section id="portfolio">
+			<h2 class="unauthElements homeProjet">Mes Projets</h2>
 
-			<div class="categories pageAdmin" aria-hidden="true">
-			<h2>Mes Projets</h2>
+			<div  class="unauthElements categories pageAdmin" aria-hidden="true">
 
 				<p class="btn-tous">Tous</p>
 				<p class="btn-objets">Objets</p>
@@ -69,27 +69,76 @@
 				<p class="btn-hotelresto">Hôtels & restaurants</p>
 
 			</div>
-			<section id="portfolio">
-				<div class="align-projets">
+			<section class="portfolio authElements">
+				<div aria-hidden="true" class="align-projets">
 					<h2>Mes Projets</h2>
-					<i class="fa-solid fa-paperclip"></i>
+					<i class="fa-solid fa-pen-to-square"></i>
 					<a href="#modale1" class="js-modale"> Modifier</a>
 				</div>
 	
-				<aside id="modale1" class="modal" aria-hidden="true" role="dialog" aria-labbeledby="titlemodal"
+				<aside id="modale1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
 					style="display:none;">
 					<div class="modal-fenetre js-modale-stop">
-						<p class="js-modale-fermer">X</p>
-						<h3>Galerie Photo</h3>
+						<i class="js-modale-fermer fa-solid fa-xmark" style="color: #000000;"></i>						<h3>Galerie Photo</h3>
 						<section class="photos">
 	
 						</section>
 						<div class="barre-grise"></div>
-						<input class="modal-input" type="submit" value="Ajouter une photo">
+						<input id="btnAjouterPhoto" class="modal-input" type="submit" value="Ajouter une photo">
 	
 	
 					</div>
 				</aside>
+
+				<a href="#modale2" class="js-modale"> Modifier</a>
+			</div>
+
+			<aside id="modale2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
+				style="display:none;">
+				<div class="modal-fenetre js-modale-stop">
+					<div class="flexSign">
+				<i class="fa-solid fa-arrow-left"></i>
+
+					<i class="js-modale-fermer fa-solid fa-xmark" style="color: #000000;"></i>
+				</div>
+					<h3>Ajout Photo</h3>
+					<form class="modale-flexbox" action="" enctype="multipart/form-data">
+
+						<div class="form-group-photo">
+							<i class="fa-regular fa-image"></i>
+							<label for="photo">+ Ajouter une photo</label>
+							<input type="file" name="photo" id="photo" class="js-image">
+							<p>jpg, png : 4mo max</p>
+							
+						</div>
+			
+						<div class="form-group-title">
+							<label for="titre">Titre</label>
+							<input class="js-title" type="text" name="titre" id="titre">
+						</div>
+			
+						<div class="form-group-id">
+							<label for="categorie">Catégorie</label>
+							<select name="categorie" id="categorie" class="js-categoryId">
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+								<option value="3">Hôtels & restaurants</option>
+							</select>
+						</div>
+						<div class="barre-grise2"></div>
+
+
+	
+						<input type="submit" class="js-add-work" value="Valider">
+					</form>
+				</div>
+			</aside>
+				</div>
+			</aside>
+
+		
+				
+				
 			</section>
 			<div class="gallery">
 
