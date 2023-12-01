@@ -218,13 +218,14 @@ li:hover {
 	margin-bottom: 0.5em;
 }
 
-#portfolio h2 {
+.portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
 
 .gallery {
-	width: 100%;
+	width: 1100px;
+	margin-left: 50px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -299,6 +300,10 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+.homeProjet {
+justify-content: center;
+margin-bottom: 30px;}
+
 input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
@@ -326,12 +331,13 @@ footer nav ul {
 /* Modale */
 
 .align-projets {
+	margin-left:430px;
 	display: flex;
 	justify-content: center;
 	gap: 10px;
 }
 
-.fa-paperclip {
+.fa-pen-to-square {
 	margin-top: 10px;
 }
 
@@ -355,11 +361,8 @@ footer nav ul {
 }
 
 .modal-fenetre {
-
 	width: 500px;
-	height: 550px;
-	max-width: 100vh;
-	max-height: 100vh;
+	height: 630px;
 	padding: 20px;
 	background-color: white;
 	border-radius: 20px;
@@ -369,6 +372,141 @@ footer nav ul {
 	display: flex;
 	justify-content: right;
 }
+
+/* Modale ajout photo */
+
+.modale-flexbox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 90%;
+}
+
+.flexSign {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form-group-photo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #E8F1F7;
+	margin-top: 20px;
+	width: 400px;
+	height: 190px;
+	border-radius: 5px;
+}
+
+.form-group-photo label {
+	margin-top: 10px;
+	border: 2px solid rgba(203, 214, 220, 1);
+	height: 30px;
+  width: 150px;
+  border-radius: 20px;
+  text-align: center;
+  color: #1D6154;
+  background: rgba(203, 214, 220, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group-photo p {
+	color:rgb(94, 93, 93);
+	font-size: 11px;
+
+}
+
+
+.fa-image {
+	font-size: 60px;
+	color: grey;
+	opacity: 0.35;
+}
+
+.fa-xmark {
+	font-size: 20px;
+}
+
+.fa-arrow-left {
+	font-size: 20px;
+
+}
+
+
+
+#modale2 h3 {
+	margin-bottom: 20px;
+	font-size: 27px;
+}
+
+.form-group-title {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+}
+
+.form-group-title label {
+
+	margin-top: 35px;
+}
+  
+.form-group-title input {
+	height: 60px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form-group-id {
+  display: flex;
+  flex-direction: column;
+  width: 404px;
+  margin-bottom: 40px;
+}
+
+.form-group-id select {
+	height: 60px;
+  font-size: 1.2em;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form-group-id label {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+  font-weight: 50;
+  color: white;
+  background-color: #1D6154;
+  border: 2px solid #1D6154;
+  height: 35px;
+  width: 225px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+.barre-grise2::before {
+	content: '';
+	display: block;
+	width: 400px;	
+	opacity: 0.7;
+	height: 1px;
+	background-color: gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+
 
 h3 {
 	font-size: 30px;
@@ -391,14 +529,17 @@ h3 {
 }
 
 .photos img {
-	width: 70px;
+	width: 75px;
 
 }
 
-.modal-fenetre input {
-	margin-left: 150px;
-	height: 35px;
+#modale1 input {
+	margin: 10px;
+	height: 45px;
 	align-items: center;
+	margin-top: 60px;
+	margin-left: 100px;
+	width: 300px;
 }
 
 .barre-grise::before {
@@ -408,32 +549,30 @@ h3 {
 	opacity: 0.5;
 	height: 1px;
 	background-color: gray;
-	/* Couleur grise, ajustez selon vos préférences */
-	margin-top: 10px;
-	/* Espacement, ajustez selon vos besoins */
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-.admin__rod button {
-	font-family: "work sans";
-	font-weight: 550;
-	background-color: white;
-	border-radius: 60px;
-	padding: 5px 15px;
-	margin: 0 25px;
-	border: none;
-	transition: all 0.2s ease;
-  }
   
-  .admin__modifer {
+  .modifier-admin {
 	display: flex;
 	-moz-column-gap: 5px;
 		 column-gap: 5px;
+		 align-items: center;
+	gap: 8px;
 	color: black;
+	margin-left: 750px;
+  }
+
+  .modifier-admin .fa-pen-to-square {
+	margin-top: 13px;
+  }
+
+  .modifier-admin p {
+	margin-top: 13px;
   }
   
-  .admin__rod .admin__modifer {
+  .admin__rod .modifier-admin {
 	color: white;
   }
 
