@@ -7,8 +7,6 @@ async function getAPI() {
 
 /* Importation photos gallerie */
 
-
-
 export async function init() {
     works = await getAPI();
     const sectionPhotos = document.querySelector('.gallery');
@@ -108,6 +106,8 @@ const toggleModale = function (e) {
 
         modale = null;
     }
+    photosModale();
+    lanceModale2();
 };
 
 const stopPropagation = function (e) {
@@ -140,78 +140,113 @@ function photosModale() {
         const iconeCorbeille = document.createElement("i");
         iconeCorbeille.className = "fa-solid fa-trash";
         iconeCorbeille.style.cursor = "pointer";
-        iconeCorbeille.setAttribute("id", works[i].id)
+        iconeCorbeille.id = works[i].id;  // Ajoute l'ID à l'attribut id de l'icône
 
         iconeCorbeille.addEventListener("click", function (event) {
             event.stopPropagation();
-            deleteWork(photos.id);
+            deleteProjects(iconeCorbeille.id);  // Utilise l'ID depuis l'attribut id
+
+            // Si l'élément parent de l'icône est généré dynamiquement, vous pouvez le supprimer de la modale
+            const parentElement = iconeCorbeille.parentElement;
+            if (parentElement) {
+                parentElement.remove();
+            }
         });
 
         imageModale.appendChild(pictureModale);
+        imageModale.appendChild(iconeCorbeille);  // Ajoute l'icône à l'article
         sectionPhotos.appendChild(imageModale);
-        sectionPhotos.appendChild(iconeCorbeille);
-
     }
-    deleteWork()
-
+    deleteWork();
 }
+
 
 // Gestion de l'affichage des boutons admin
 const token = localStorage.getItem("token");
 const logout = document.querySelector(".logout");
 
-adminPanel()
-// Gestion de l'affichage des boutons admin
 function adminPanel() {
-    document.querySelectorAll(".pageAdmin").forEach(a => {
+    document.querySelectorAll(".authElements").forEach(a => {
         console.log("adminpanel:%s", a)
         console.log("token:%s", token)
         if (token === null) {
-            return;
-        }
-        else {
-            console.log(a)
-            a.style.display = "none"
+            a.style.display = "none";
+        } else {
+            a.style.display = "inline-block";
             logout.innerHTML = "logout";
+        }
+    });
+
+    document.querySelectorAll(".unauthElements").forEach(a => {
+        console.log("adminpanel:%s", a)
+        console.log("token:%s", token)
+        if (token === null) {
+            a.style.display = "flex";
+        } else {
+            a.style.display = "none";
         }
     });
 }
 
+adminPanel();
+
 //suppression des projets dans la modale// 
 
 function deleteWork() {
-    let btnDelete = document.querySelectorAll(".photos");
+    let btnDelete = document.querySelectorAll(".photos i.fa-trash");
     for (let i = 0; i < btnDelete.length; i++) {
-        btnDelete[i].addEventListener("click", deleteProjects);
+        const projectId = btnDelete[i].id; 
+        btnDelete[i].addEventListener("click", function () {
+            deleteProjects(projectId);
+        });
     }
 }
 
-async function deleteProjects() {
+async function deleteProjects(projectId) {
+    console.log("debug suppression");
+    console.log("id", projectId);
+    console.log(token);
 
-    console.log("debug suppression")
-    console.log("id", this.id)
-    console.log(token)
-
-    await fetch(`http://localhost:5678/api/works/${this.dataset.id[0]}`, {
+    await fetch(`http://localhost:5678/api/works/${projectId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
     })
-
         .then(response => {
-            console.log(response)
+            console.log(response);
             // Token good
             if (response.status === 204) {
-                console.log("DEBUG SUPPRESION DU PROJET " + this.classList[0])
-                refreshPage(this.classList[0])
+                console.log("DEBUG SUPPRESSION DU PROJET " + projectId);
+                refreshPage(projectId);
             }
-            // Token inorrect
+            // Token incorrect
             else if (response.status === 401) {
-                alert("Vous n'êtes pas autorisé(e) à supprimer ce projet, merci de vous connecter avec un compte valide")
+                alert("Vous n'êtes pas autorisé(e) à supprimer ce projet, merci de vous connecter avec un compte valide");
                 window.location.href = "login.html";
             }
         })
         .catch(error => {
-            console.log(error)
-        })
+            console.log(error);
+        });
+}
+
+
+function lanceModale2() {
+    const btnAjouterPhoto = document.getElementById('btnAjouterPhoto');
+
+    if (btnAjouterPhoto) {
+        btnAjouterPhoto.addEventListener('click', function () {
+            const modale2 = document.getElementById('modale2');
+
+            if (modale2) {
+                modale.style.display = "none";
+                modale.setAttribute("aria-hidden", "true");
+                modale.removeAttribute("aria-modal");
+
+                modale2.style.display = null;
+                modale2.removeAttribute("aria-hidden");
+                modale2.setAttribute("aria-modal", "true");
+            }
+        });
+    }
 }
 
