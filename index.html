@@ -21,7 +21,6 @@
 </head>
 
 
-
 <body>
 	<aside class="authElements admin__rod" aria-hidden="true"  >
 		<div class="modifier-admin">
@@ -73,7 +72,7 @@
 				<div aria-hidden="true" class="align-projets">
 					<h2>Mes Projets</h2>
 					<i class="fa-solid fa-pen-to-square"></i>
-					<a href="#modale1" class="js-modale"> Modifier</a>
+					<a href="#modale1" class="js-modale"> modifier</a>
 				</div>
 	
 				<aside id="modale1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
@@ -90,7 +89,7 @@
 					</div>
 				</aside>
 
-				<a href="#modale2" class="js-modale"> Modifier</a>
+				<a href="#modale2" class="js-modale"></a>
 			</div>
 
 			<aside id="modale2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
@@ -101,35 +100,38 @@
 
 					<i class="js-modale-fermer fa-solid fa-xmark" style="color: #000000;"></i>
 				</div>
-					<h3>Ajout Photo</h3>
-					<form class="modale-flexbox" action="" enctype="multipart/form-data">
+				<h3>Ajout Photo</h3>
+				<form class="modale-flexbox" action="" enctype="multipart/form-data">
 
-						<div class="form-group-photo">
-							<i class="fa-regular fa-image"></i>
-							<label for="photo">+ Ajouter une photo</label>
-							<input type="file" name="photo" id="photo" class="js-image">
-							<p>jpg, png : 4mo max</p>
+					<div class="form-group-photo">
+						<i class="fa-regular fa-image"></i>
+						<label for="photo">+ Ajouter une photo</label>
+						<input type="file" name="photo" id="photo" class="ajout-image">
+						<p>jpg, png : 4mo max</p>
+						<img id="photo-preview" class="photo-previsualisation" src="#" alt="Prévisualisation de la photo" style="display: none;">
+						
+					</div>
+		
+					<div class="form-group-title">
+						<label for="titre">Titre</label>
+						<input class="ajout-titre" type="text" name="titre" id="titre">
+					</div>
+		
+					<div class="form-group-id">
+						<label for="categorie">Catégorie</label>
+						<select name="categorie" id="categorie" class="ajout-categoryId">
+							<option disabled selected value></option>
+							<option value="1">Objets</option>
+							<option value="2">Appartements</option>
+							<option value="3">Hôtels & restaurants</option>
 							
-						</div>
-			
-						<div class="form-group-title">
-							<label for="titre">Titre</label>
-							<input class="js-title" type="text" name="titre" id="titre">
-						</div>
-			
-						<div class="form-group-id">
-							<label for="categorie">Catégorie</label>
-							<select name="categorie" id="categorie" class="js-categoryId">
-								<option value="1">Objets</option>
-								<option value="2">Appartements</option>
-								<option value="3">Hôtels & restaurants</option>
-							</select>
-						</div>
-						<div class="barre-grise2"></div>
+						</select>
+					</div>
+					<div class="barre-grise2"></div>
 
 
 	
-						<input type="submit" class="js-add-work" value="Valider">
+						<input type="submit" class="btn-ajout" value="Valider">
 					</form>
 				</div>
 			</aside>
