@@ -179,7 +179,12 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	gap:10px;
 
+}
+
+nav ul img {
+	width: 20px;
 }
 
 nav li {
@@ -322,6 +327,7 @@ footer nav ul {
 }
 
 
+
 /* Page login */
 
 .mdp {
@@ -339,12 +345,21 @@ footer nav ul {
 
 .fa-pen-to-square {
 	margin-top: 10px;
+	margin-left: 10px;
 }
 
 .js-modale {
 	margin-top: 10px;
 	font-size: 13px;
+	
+	
 }
+
+.js-modale, .logout {
+	text-decoration: none;
+	color: black;
+}
+
 
 
 .modal {
@@ -366,6 +381,7 @@ footer nav ul {
 	padding: 20px;
 	background-color: white;
 	border-radius: 20px;
+
 }
 
 .js-modale-fermer {
@@ -397,6 +413,7 @@ footer nav ul {
 	width: 400px;
 	height: 190px;
 	border-radius: 5px;
+	overflow: hidden;
 }
 
 .form-group-photo label {
@@ -411,12 +428,24 @@ footer nav ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 12px;
 }
 
 .form-group-photo p {
 	color:rgb(94, 93, 93);
-	font-size: 11px;
+	font-size: 10px;
+	margin-top: 10px;
+}
 
+.form-group-photo input {
+	display: none;
+}
+
+.photo-previsualisation {
+	max-width: 100%; 
+    max-height: 100%; 
+    display: block;
+    margin: auto; 
 }
 
 
@@ -434,7 +463,6 @@ footer nav ul {
 	font-size: 20px;
 
 }
-
 
 
 #modale2 h3 {
@@ -486,7 +514,7 @@ input[type=submit] {
   color: white;
   background-color: #1D6154;
   border: 2px solid #1D6154;
-  height: 35px;
+  height: 40px;
   width: 225px;
   text-align: center;
   border-radius: 60px;
@@ -523,14 +551,30 @@ h3 {
 	gap: 10px;
 	margin-left: 40px;
 	margin-right: 40px;
+    object-fit: cover; 
 	position: relative;
-
-
 }
+
+.custom-dropdown .option {
+	display: none;
+	list-style: none;
+	padding: 0;
+	margin: 0;}
 
 .photos img {
 	width: 75px;
 
+}
+
+.photos .fa-trash {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+	background-color: black;
+	border-radius: 2px;
+	padding: 3px;
+	margin-top: 7px;
+	margin-left: -21px;
 }
 
 #modale1 input {
